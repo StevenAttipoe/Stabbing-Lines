@@ -21,14 +21,12 @@ Point pointsArray[],const int MaxPtsSize, Line stabbedLines[], const int MaxStbS
         while(b != pointsArray[c].Pid){
             c++;  }
         x2 = pointsArray[c].x;
-    }
         
-        for(int i=0; i<MaxLnsSize; i++){
+
             if(x2 >= xcoord){
                 if(x1 <= xcoord){
                     stabbedLines[i] = linesArray[i];
-                    
-                }
+                    }
             }
             cout<< " The stabbed lines' IDs are: "<<stabbedLines[i].Lid<<" "<<endl;
         }
