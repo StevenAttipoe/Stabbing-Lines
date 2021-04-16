@@ -1,0 +1,24 @@
+CXX = g++
+CFLAGS = -std=c++17 -Wall -g
+LDFLAGS = -lm
+ALL: testStabLineProg 
+
+readPoints.o : readPoints.cpp stabbingLines.h
+    ${CXX} ${CFLAGS} -c readPoints.cpp
+readLines.o : readLines.cpp stabbingLines.h
+    ${CXX} ${CFLAGS} -c readLines.cpp
+printLineByCoords.o : printLineByCoords.cpp stabbingLines.h
+    ${CXX} ${CFLAGS} -c printLineByCoords.cpp
+getStabLines.o : getStabLines.cpp stabbingLines.h
+    ${CXX} ${CFLAGS} -c getStabLines.cpp
+
+testStabLineProg.o : testStabLineProg.cpp stabbingLines.h
+    ${CXX} ${CFLAGS} -c testStabLineProg.cpp
+
+
+testStabLineProg : stabbingLines.h readPoints.o readLines.o printLineByCoords.o getStabLines.o testStabLineProg.o
+    ${CXX} ${CFLAGS} readPoints.o readLines.o printLineByCoords.o getStabLines.o testStabLineProg.o \
+    -o testStabLineProg ${LDFLAGS}
+
+clean :
+${RM} -r *.o testStabLineProg
