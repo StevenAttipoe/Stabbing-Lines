@@ -25,7 +25,7 @@ Point pointsArray[],const int MaxPtsSize, Line stabbedLines[], const int MaxStbS
         
         for(int i=0; i<MaxLnsSize; i++){
             if(x2 >= xcoord){
-                if(x1 >= xcoord){
+                if(x1 <= xcoord){
                     stabbedLines[i] = linesArray[i];
                     
                 }
